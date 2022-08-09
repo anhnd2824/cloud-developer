@@ -24,7 +24,7 @@ import { url } from 'inspector';
   app.get("/filteredimage/", async (req: Request, res: Response) => {
     // IT SHOULD
     //    1. validate the image_url query
-    let { image_url } : { image_url: String } = req.query;
+    let { image_url } : { image_url: string } = req.query;
 
     if (!image_url) {
       return res.status(400)
