@@ -132,6 +132,7 @@ functions:
       - Effect: Allow
         Action:
           - dynamodb:DeleteItem
+          - dynamodb:UpdateItem
         Resource: !GetAtt TodosTable.Arn
 
 resources:

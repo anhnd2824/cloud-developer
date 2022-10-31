@@ -1,4 +1,4 @@
-import { TodosAccess } from '../helpers/todosAcess'
+import { TodosAccess } from '../dataLayer/todosAcess'
 import { AttachmentUtils } from '../helpers/attachmentUtils';
 import { TodoItem } from '../models/TodoItem'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
@@ -47,6 +47,11 @@ export async function updateTodo(userId: string, todoId: string, updateRequest: 
 export async function createAttachmentPresignedUrl(todoId: string): Promise<string> {
     logger.info('Create pre-signed url')
     return await attachmentUtils.createAttachmentPresignedUrl(todoId)
+}
+
+export async function updateAttachmentUrl(userId: string, todoId: string, uploadUrl: string): Promise<string> {
+    logger.info('Update attachment')
+    return await todoAccess.updateAttachmentUrl(userId, todoId, uploadUrl)
 }
 
 export async function todoExists(todoId: string): Promise<Boolean> {
